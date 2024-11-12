@@ -7,8 +7,8 @@
 	<script src="jquery.min.js"></script>
 	<style>
 		.box {
-			width: 70px;
-			height: 70px;
+			width: 60px;
+			height: 60px;
 			background-color: teal;
 			font-size: 300%;
 			text-align: center;
@@ -66,7 +66,9 @@
 			//////////////////////////////////////////////////////////////////
 
 			// TODO 2 - Variable declarations 
-
+var positionX = 0
+var points = 0
+var speed = 10
 
 
 			/* 
@@ -75,9 +77,18 @@
 			turn it around! 
 			*/
 			function update() {
+				positionX = positionX + speed 
+				moveBoxTo(positionX); // Moves the box to the x-position 300
+			if (positionX > boardWidth)  { 
+				speed = speed * -1			// code to reverse speed is here
+			}
+			if (positionX < 0) {
+				speed *= -1
+			}
 
 
-			};
+
+			}
 
 			/* 
 			This Function will be called each time the box is clicked. Each time it is called,
@@ -85,6 +96,19 @@
 			the left side of the screen.
 			*/
 			function handleBoxClick() {
+positionX = 0
+points = points + 1
+changeBoxText(points)
+speed = 3 * points + 10 /*makes the speed faster each click*/
+
+
+
+
+
+
+
+
+
 
 
 			};
